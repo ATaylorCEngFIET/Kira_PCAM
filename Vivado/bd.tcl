@@ -229,8 +229,14 @@ proc create_root_design { parentCell } {
   # Create instance: axis_subset_converter_0, and set properties
   set axis_subset_converter_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_subset_converter:1.1 axis_subset_converter_0 ]
   set_property -dict [ list \
+   CONFIG.M_HAS_TKEEP {1} \
+   CONFIG.M_HAS_TLAST {1} \
    CONFIG.M_TDATA_NUM_BYTES {3} \
+   CONFIG.M_TUSER_WIDTH {1} \
+   CONFIG.S_HAS_TKEEP {1} \
+   CONFIG.S_HAS_TLAST {1} \
    CONFIG.S_TDATA_NUM_BYTES {3} \
+   CONFIG.S_TUSER_WIDTH {1} \
    CONFIG.TDATA_REMAP {tdata[15:8],tdata[23:16],tdata[7:0]} \
    CONFIG.TKEEP_REMAP {tkeep[2:0]} \
    CONFIG.TLAST_REMAP {tlast[0]} \
@@ -240,8 +246,16 @@ proc create_root_design { parentCell } {
   # Create instance: axis_subset_converter_1, and set properties
   set axis_subset_converter_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_subset_converter:1.1 axis_subset_converter_1 ]
   set_property -dict [ list \
+   CONFIG.M_HAS_TKEEP {0} \
+   CONFIG.M_HAS_TLAST {1} \
    CONFIG.M_TDATA_NUM_BYTES {1} \
+   CONFIG.M_TDEST_WIDTH {10} \
+   CONFIG.M_TUSER_WIDTH {1} \
+   CONFIG.S_HAS_TKEEP {0} \
+   CONFIG.S_HAS_TLAST {1} \
    CONFIG.S_TDATA_NUM_BYTES {2} \
+   CONFIG.S_TDEST_WIDTH {10} \
+   CONFIG.S_TUSER_WIDTH {1} \
    CONFIG.TDATA_REMAP {tdata[9:2]} \
    CONFIG.TDEST_REMAP {tdest[9:0]} \
    CONFIG.TLAST_REMAP {tlast[0]} \
